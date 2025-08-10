@@ -65,19 +65,7 @@ export async function registrarIngreso(req, res) {
       ingreso_id: newIngreso.id
     },{ transaction: t });
   }
-   // Crear productos asociados al ingreso 
-   /* const Newdetalles = await IngresoDetalle.bulkCreate(
-    detalles.map(detalle => ({
-      producto_id: detalle.producto_id,
-      lote: detalle.lote,
-      cantidad: detalle.cantidad,
-      precio: detalle.precio,
-      precioVenta: detalle.precioVenta,
-      saldoProducto: detalle.saldoProducto,
-      ingreso_id: newIngreso.id // Asociamos cada post al usuario por su ID
-    })),{ transaction: t }
-  ); */
-   
+
   // Si ambos registros se crean correctamente, confirmamos la transacción
   await t.commit();
 
