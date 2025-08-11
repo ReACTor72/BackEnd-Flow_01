@@ -66,7 +66,8 @@ export async function registrarIngreso(req, res) {
     },{ transaction: t });
   }
 
-  // Si ambos registros se crean correctamente, confirmamos la transacción
+  // Si ambos registros se crean correctamente, 
+  // confirmamos la transacción
   await t.commit();
 
     res.status(201).json({mensaje: 'Ingreso Registrado correctamente',
@@ -93,7 +94,8 @@ export async function buscarIngreso(req, res) {
   }
 }
 
-// Función actualizar saldo de un ingreso
+// Función actualizar saldo 
+// a partir de un ingreso
 export async function actualizarSaldo(req, res) {
   const { id } = req.params;
   const { saldoProducto } = req.body;
