@@ -65,20 +65,9 @@ export async function registrarIngreso(req, res) {
       ingreso_id: newIngreso.id
     },{ transaction: t });
   }
-   // Crear productos asociados al ingreso 
-   /* const Newdetalles = await IngresoDetalle.bulkCreate(
-    detalles.map(detalle => ({
-      producto_id: detalle.producto_id,
-      lote: detalle.lote,
-      cantidad: detalle.cantidad,
-      precio: detalle.precio,
-      precioVenta: detalle.precioVenta,
-      saldoProducto: detalle.saldoProducto,
-      ingreso_id: newIngreso.id // Asociamos cada post al usuario por su ID
-    })),{ transaction: t }
-  ); */
-   
-  // Si ambos registros se crean correctamente, confirmamos la transacción
+
+  // Si ambos registros se crean correctamente, 
+  // confirmamos la transacción
   await t.commit();
 
     res.status(201).json({mensaje: 'Ingreso Registrado correctamente',
@@ -105,7 +94,8 @@ export async function buscarIngreso(req, res) {
   }
 }
 
-// Función actualizar saldo de un ingreso
+// Función actualizar saldo 
+// a partir de un ingreso
 export async function actualizarSaldo(req, res) {
   const { id } = req.params;
   const { saldoProducto } = req.body;
