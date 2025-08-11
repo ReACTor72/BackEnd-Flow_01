@@ -1,6 +1,7 @@
 import { Empleado } from "../models/Empleado.js"
 
-//listar registros
+// listar registros
+// para empleados
 export const listarEmpleados = async (req, res) => {
     try{
         const empleados = await Empleado.findAll()
@@ -17,7 +18,8 @@ export const listarEmpleados = async (req, res) => {
    }   
 }
 
-//crear registro
+// crear registro
+// para empleados
 export const crearEmpleado = async (req, res) => {
     try{
         const {
@@ -61,7 +63,7 @@ export const verEmpleado = async (req, res) => {
        }
 }
 
-//actualizar registro
+// actualizar registro
 export const actualizarEmpleado = async (req, res) => {
     const {id} = req.params
     try{
@@ -82,4 +84,3 @@ export const actualizarEmpleado = async (req, res) => {
         return res.status(500).json({message: error.message});
     }
 };
-
